@@ -1,0 +1,38 @@
+p {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Roboto Slab", serif;
+  background-color: ;
+}
+
+.container {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 30px;
+  align-self: center;
+}
+
+.location-details {
+}
+
+.loading {
+}
+
+.location-task {
+  font-size: 30px;
+}
+
+.show-hint {
+  padding: 10em;
+}
+
+.hint {
+  font-size: 30px;
+}

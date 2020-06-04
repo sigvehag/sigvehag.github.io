@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <p class="title">Velkommen til Fremtinds Rebus</p>
+
+      <p id="demo" class="location-details"></p>
+      <p id="locationName" class="loading">Laster sted...</p>
+      <p id="locationTask" class="location-task"></p>
+      <button
+        id="hintButton"
+        onclick="showHintFunc()"
+        style="visibility: hidden;"
+        class="show-hint"
+      >
+        Vis hint
+      </button>
+      <p id="locationHint" class="hint"></p>
+    </div>
+
+    <script>
+      var x = document.getElementById("demo");
+      var locationName = document.getElementById("locationName");
+      var locationTask = document.getElementById("locationTask");
+      var hintButton = document.getElementById("hintButton");
+      var locationHint = document.getElementById("locationHint");
+
+      var showHint = false;
+      var currentLocation = {};
+      var foundLocation = {};
+
+      var i = 0;
+
+      function metersToLat(meters) {
+        // Converts meters to latitude "distance"
+        var latitudeDistance = 111395.08;
+        return meters / latitudeDistance;
+      }
+
+      function metersToLong(meters) {
+        // Converts meters to longitude "distance"
+        var longitudeDistance = 57475.28;
+        return meters / longitudeDistance;
+      }
+
+      var locations = [
+        {
+          name: "Sigves Hus",
+          task: "Du er feil sted, du må gå til H2",
+          latitude: 59.939902,
+          longitude: 10.764182,
+        },
+        {
+          name: "H2",
+          task: "Vi starter med å besøke den grønne eieren vår.",
+          hint: "Du trenger ikke hint for dette!",
+          latitude: 59.914682,
+          longitude: 10.751701,
+        },
+        {
+          name: "DNB",
+          task:
+            "Midt i byen ligger det en isbre omringet av Sørenga, Vippetangen, Deichman Bjørvika og det nye Munchmuseet. ",
+          latitude: 59.907589,
+          longitude: 10.759874,
+        },
+        {
+          name: "Operaen",
+          task:
+            "På 1800-tallet var dette bygget et fengsel, og attpåtil det strengeste fengselet i Norge. Hvilket bygg er det snakk om?",
+          hint: "Akershus Festning, Østbanehallen, Rådhuset",
+          latitude: 59.907436,
+          longitude: 10.753057,
+        },
+      ];
+
+      function compareLocation(currentLocation) {
+        return locations.find((location) => {
+          if (
+            Math.abs(currentLocation.latitude - location.latitude) <
+            metersToLat(75)
+          ) {
+            if (
+              Math.abs(currentLocation.longitude - location.longitude) <
+              metersToLong(75)
+            ) {
+              return location;
+            }
+          }
+        });
+      }
+
+      window.setInterval(function () {
+        if (navigator.geolocation) {
+          console.log("Interval");
+          navigator.geolocation.getCurrentPosition(showLocation);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+        i++;
+      }, 5000);
+
+      window.setInterval(function () {
+        updateText();
+      }, 50);
+
+      function getLocation() {}
+
+      function showLocation(position) {
+        console.log(position.coords);
+        currentLocation = position.coords;
+        foundLocation = compareLocation(currentLocation);
+      }
+
+      function updateText() {
+        if (foundLocation) {
+          locationName.innerHTML = "<br>Du er ved " + foundLocation.name;
+          locationTask.innerHTML = foundLocation.task;
+          if (foundLocation.hint) {
+            hintButton.style.visibility = "visible";
+            if (showHint) {
+              locationHint.innerHTML = foundLocation.hint;
+            }
+          } else {
+            hintButton.style.visibility = "hidden";
+            locationHint.innerHTML = "";
+          }
+        } else {
+          locationName.innerHTML = "Du er ikke et sted vi vet om";
+        }
+
+        x.innerHTML =
+          "Latitude: " +
+          currentLocation.latitude +
+          "<br>Longitude: " +
+          currentLocation.longitude +
+          "<br>Called " +
+          i +
+          " times.";
+      }
+
+      function showHintFunc() {
+        showHint = true;
+      }
+    </script>
+  </body>
+</html>
