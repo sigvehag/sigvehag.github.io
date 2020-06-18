@@ -3,23 +3,51 @@
   <head>
     <link rel="stylesheet" href="style.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <div class="container">
       <p class="title">Velkommen til Fremtinds Rebus</p>
+      <div class="rainbow-cat">
+        <svg
+          class="neon-cat"
+          width="272"
+          height="168"
+          viewBox="0 0 272 168"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <rect width="272" height="168" fill="url(#pattern0)" />
+          <defs>
+            <pattern
+              id="pattern0"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1"
+            >
+              <use
+                xlink:href="#image0"
+                transform="scale(0.00367647 0.00595238)"
+              />
+            </pattern>
+            <image
+              id="image0"
+              width="272"
+              height="168"
+              xlink:href="data:image/png;base64,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"
+            />
+          </defs>
+        </svg>
+        <div class="rainbow"></div>
+      </div>
 
       <p id="demo" class="location-details"></p>
       <p id="locationName" class="loading">Laster sted...</p>
       <p id="locationTask" class="location-task"></p>
-      <button
-        id="hintButton"
-        onclick="showHintFunc()"
-        style="visibility: hidden;"
-        class="show-hint"
-      >
+      <button id="hintButton" onclick="showHintFunc()" class="show-hint">
         Vis hint
       </button>
       <p id="locationHint" class="hint"></p>
@@ -55,21 +83,21 @@
           name: "Sigves Hus",
           task: "Du er feil sted, du må gå til H2",
           latitude: 59.939902,
-          longitude: 10.764182,
+          longitude: 10.764182
         },
         {
           name: "H2",
           task: "Vi starter med å besøke den grønne eieren vår.",
           hint: "Du trenger ikke hint for dette!",
           latitude: 59.914682,
-          longitude: 10.751701,
+          longitude: 10.751701
         },
         {
           name: "DNB",
           task:
             "Midt i byen ligger det en isbre omringet av Sørenga, Vippetangen, Deichman Bjørvika og det nye Munchmuseet. ",
           latitude: 59.907589,
-          longitude: 10.759874,
+          longitude: 10.759874
         },
         {
           name: "Operaen",
@@ -77,8 +105,8 @@
             "På 1800-tallet var dette bygget et fengsel, og attpåtil det strengeste fengselet i Norge. Hvilket bygg er det snakk om?",
           hint: "Akershus Festning, Østbanehallen, Rådhuset",
           latitude: 59.907436,
-          longitude: 10.753057,
-        },
+          longitude: 10.753057
+        }
       ];
 
       function compareLocation(currentLocation) {
@@ -97,7 +125,7 @@
         });
       }
 
-      window.setInterval(function () {
+      window.setInterval(function() {
         if (navigator.geolocation) {
           console.log("Interval");
           navigator.geolocation.getCurrentPosition(showLocation);
@@ -105,9 +133,9 @@
           x.innerHTML = "Geolocation is not supported by this browser.";
         }
         i++;
-      }, 5000);
+      }, 50000);
 
-      window.setInterval(function () {
+      window.setInterval(function() {
         updateText();
       }, 50);
 

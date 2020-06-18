@@ -3,8 +3,7 @@ p {
 }
 
 body {
-  font-family: "Roboto Slab", serif;
-  background-color: ;
+  font-family: "Heebo", sans-serif;
 }
 
 .container {
@@ -12,27 +11,73 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 3em;
+  transition-property: box-shadow;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+  transition-delay: 0s;
+  box-shadow: 0 10px 25px transparent;
 }
 
 .title {
   font-size: 30px;
   align-self: center;
+  border-bottom: 2px solid currentColor;
 }
 
 .location-details {
+  color: red;
 }
 
 .loading {
+  color: green;
 }
 
 .location-task {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .show-hint {
   padding: 10em;
+  visibility: hidden;
 }
 
 .hint {
-  font-size: 30px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.neon-cat {
+  width: 30%;
+}
+
+.neon-cat:active(.rainbow) {
+  color: grey;
+}
+
+.rainbow-cat {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/*.rainbow-cat:active {
+  transform: translateY(-200px);
+}*/
+
+.rainbow {
+  z-index: -1;
+  width: 2em;
+  height: 20em;
+  transform: rotate(90deg);
+  background-image: linear-gradient(
+    to right,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
 }
