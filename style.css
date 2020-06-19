@@ -1,10 +1,9 @@
 p {
-  font-size: 10px;
+  font-size: 40px;
 }
 
 body {
-  font-family: "Roboto Slab", serif;
-  background-color: ;
+  font-family: "Heebo", sans-serif;
 }
 
 .container {
@@ -12,27 +11,69 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 3em;
+  transition-property: box-shadow;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+  transition-delay: 0s;
+  box-shadow: 0 10px 25px transparent;
 }
 
 .title {
-  font-size: 30px;
+  font-size: 60px;
   align-self: center;
+  border-bottom: 2px solid currentColor;
 }
 
 .location-details {
+  color: red;
 }
 
 .loading {
+  color: green;
 }
 
 .location-task {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .show-hint {
-  padding: 10em;
+  padding: 5em;
+  visibility: hidden;
 }
 
 .hint {
-  font-size: 30px;
+  font-size: 40px;
+}
+
+.rainbow-cat {
+  width: 100%;
+  height: 12em;
+  position: relative;
+}
+
+.neon-cat:active {
+  transform: translateX(140%);
+}
+.neon-cat {
+  margin-left: -8em;
+  margin-top: -2em;
+  width: 50%;
+  z-index: 1;
+  position: absolute;
+}
+.rainbow {
+  position: static;
+  width: 100%;
+  height: 5em;
+  background-image: linear-gradient(
+    to bottom,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
 }
