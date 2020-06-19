@@ -83,21 +83,21 @@
           name: "Sigves Hus",
           task: "Du er feil sted, du må gå til H2",
           latitude: 59.939902,
-          longitude: 10.764182
+          longitude: 10.764182,
         },
         {
           name: "H2",
           task: "Vi starter med å besøke den grønne eieren vår.",
           hint: "Du trenger ikke hint for dette!",
           latitude: 59.914682,
-          longitude: 10.751701
+          longitude: 10.751701,
         },
         {
           name: "DNB",
           task:
             "Midt i byen ligger det en isbre omringet av Sørenga, Vippetangen, Deichman Bjørvika og det nye Munchmuseet. ",
           latitude: 59.907589,
-          longitude: 10.759874
+          longitude: 10.759874,
         },
         {
           name: "Operaen",
@@ -154,7 +154,7 @@
         });
       }
 
-      window.setInterval(function() {
+      window.setInterval(function () {
         if (navigator.geolocation) {
           console.log("Interval");
           navigator.geolocation.getCurrentPosition(showLocation);
@@ -162,9 +162,9 @@
           x.innerHTML = "Geolocation is not supported by this browser.";
         }
         i++;
-      }, 50000);
+      }, 5000);
 
-      window.setInterval(function() {
+      window.setInterval(function () {
         updateText();
       }, 50);
 
