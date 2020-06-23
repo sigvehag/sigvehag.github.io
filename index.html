@@ -69,6 +69,7 @@
       function metersToLat(meters) {
         // Converts meters to latitude "distance"
         var latitudeDistance = 111395.08;
+        console.log(meters / latitudeDistance, "meters/latDist");
         return meters / latitudeDistance;
       }
 
@@ -139,6 +140,12 @@
       ];
 
       function compareLocation(currentLocation) {
+        console.log(
+          currentLocation,
+          location,
+          "compareLocation",
+          metersToLat(75)
+        );
         return locations.find((location) => {
           if (
             Math.abs(currentLocation.latitude - location.latitude) <
